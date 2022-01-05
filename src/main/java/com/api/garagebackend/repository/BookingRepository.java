@@ -24,5 +24,14 @@ public interface BookingRepository extends CrudRepository<Booking, Integer>{
 			
 	//Create or update
 	<BookingTemp extends Booking> BookingTemp save(BookingTemp booking);
+	
+	//Find by booking status
+	List<Booking> findByBookingstatus(String bookingstatus);
+	
+	//Find by booking date
+	List<Booking> findByDate(String date);
+	
+	//Find by booking date and mechanic
+	List<Booking> findByDateAndMechanic (String date, String mechanic);
 
 }

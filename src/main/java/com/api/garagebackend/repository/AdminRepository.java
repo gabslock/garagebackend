@@ -9,6 +9,7 @@ package com.api.garagebackend.repository;
 import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import com.api.garagebackend.model.Admin;
+import com.api.garagebackend.model.User;
 
 //Repository to set basic actions to access the database
 public interface AdminRepository extends CrudRepository<Admin, Integer>{
@@ -27,5 +28,8 @@ public interface AdminRepository extends CrudRepository<Admin, Integer>{
 		
 	//Find user by email
 	Admin findByEmail(String email);
+	
+	//Find by email and password
+	Admin findByEmailAndPassword (String email, String password);
 
 }

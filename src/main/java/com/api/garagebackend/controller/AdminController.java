@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.api.garagebackend.model.Admin;
-import com.api.garagebackend.model.User;
 import com.api.garagebackend.repository.AdminRepository;
 
 //Controller class to process incoming REST API requests
@@ -66,5 +65,17 @@ public class AdminController {
 	public @ResponseBody Admin findEmailAdmin(@PathVariable String email) {
 	return actions.findByEmail(email);
 		}
+	
+	//Login - check is admin email exists and compare the password.
+	@RequestMapping(value="/adminlogin", method=RequestMethod.POST)
+	public @ResponseBody String login(@RequestBody Admin admin) {
+		if (actions.findByEmail(admin.getEmail()) == null) {
+			return "Email not registered.";
+		} else if (actions.findByEmailAndPassword(admin.getEmail(), admin.getPassword()) == null) {
+			return "Wrong password.";
+		} else {
+			return "Admin ok";
+		}
+	}
 
 }

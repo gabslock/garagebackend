@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.api.garagebackend.model.Booking;
-import com.api.garagebackend.model.User;
 import com.api.garagebackend.repository.BookingRepository;
 
 //Controller class to process incoming REST API requests
@@ -77,4 +76,17 @@ public class BookingController {
 			actions.save(booking);
 			return true;
 		}
+		
+		//Find booking by booking status
+		@RequestMapping(value="/bookingsbystatus/{bookingstatus}", method=RequestMethod.GET)
+		public @ResponseBody List<Booking> listBookingsByStatus(@PathVariable String bookingstatus) {
+			return actions.findByBookingstatus(bookingstatus);
+		}
+		
+		//Find booking by date
+		@RequestMapping(value="/bookingsbydate/{date}", method=RequestMethod.GET)
+		public @ResponseBody List<Booking> listBookingsByDate(@PathVariable String date) {
+			return actions.findByDate(date);
+		}
+		
 }
