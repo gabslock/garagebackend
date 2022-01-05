@@ -77,7 +77,7 @@ public class UserController {
 	}
 	}
 	
-	//Login - check is email exists and compare the password
+	//Login - check is email exists and compare the password. Send ID if login ok.
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public @ResponseBody String login(@RequestBody User user) {
 		if (actions.findByEmail(user.getEmail()) == null) {
@@ -85,7 +85,7 @@ public class UserController {
 		} else if (actions.findByEmailAndPassword(user.getEmail(), user.getPassword()) == null) {
 			return "Wrong password.";
 		} else {
-			return "Login ok";
+			return Integer.toString(actions.findByEmail(user.getEmail()).getUserid());
 		}
 	}
 	
