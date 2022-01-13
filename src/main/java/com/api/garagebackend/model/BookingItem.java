@@ -1,22 +1,25 @@
 /*
 @name: Gabriel Jucá
 @date: 22nd Jan 2022
-BookingItems.java
+BookingItem.java
 Part of Ger's Garage Web Application - Guided Technology Project for CCT Dublin.
  */
 package com.api.garagebackend.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-//Model class for Bookings Items with database connection through JPA (Spring Boot)
+//Model class for Bookings with database connection through JPA (Spring Boot)
 @Entity
-@Table(name="bookingitems")
-public class BookingItems {
+@Table(name="bookingitem")
+public class BookingItem {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="bookingitemid")
 	private int bookingitemid;
 	
@@ -35,7 +38,8 @@ public class BookingItems {
 	@Column(name="totalprice")
 	private double totalprice;
 	
-	public BookingItems() {
+	public BookingItem() {
+		super();
 	}
 
 	public int getBookingitemid() {
@@ -85,5 +89,5 @@ public class BookingItems {
 	public void setTotalprice(double totalprice) {
 		this.totalprice = totalprice;
 	}
-	
+
 }
