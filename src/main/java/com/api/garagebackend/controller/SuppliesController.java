@@ -59,5 +59,11 @@ public class SuppliesController {
 		Supplies supplies = findSupplies(productname);
 		this.actions.delete(supplies);
 	}
+	
+	//Get price by product name
+	@RequestMapping(value="/getprice", method=RequestMethod.POST)
+	public @ResponseBody double getPrice(@RequestBody String productname) {
+	return actions.findByProductname(productname).getUnitprice();
+	}
 
 }
