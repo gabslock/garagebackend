@@ -65,7 +65,7 @@ public class BookingController {
 		this.actions.delete(booking);
 	}
 		
-	//New booking and create booking item charge
+	//Create new booking and create booking item charge
 	@RequestMapping(value="/newbooking", method=RequestMethod.POST)
 	public @ResponseBody boolean newBooking(@RequestBody Booking booking) {
 		booking.setBookingstatus("Booked");
@@ -130,7 +130,8 @@ public class BookingController {
 	}
 		
 	//Find by Date and Mechanic
-	public List<Booking> listByDateAndMechanic(String date, String mechanic){
+	@RequestMapping(value="/roster/{date}/{mechanic}", method=RequestMethod.GET)
+	public List<Booking> listByDateAndMechanic(@PathVariable String date, @PathVariable String mechanic){
 		return actions.findByDateAndMechanic(date, mechanic);
 	}
 		
