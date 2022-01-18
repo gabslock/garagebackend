@@ -5,7 +5,6 @@ MechanicController.java
 Part of Ger's Garage Web Application - Guided Technology Project for CCT Dublin.
  */
 
-
 package com.api.garagebackend.controller;
 
 import java.util.List;
@@ -31,7 +30,7 @@ public class MechanicController {
 	@Autowired
 	private MechanicRepository actions;
 	
-	//List supplies
+	//List mechanics
 	@RequestMapping(value="/mechanic", method=RequestMethod.GET)
 	public @ResponseBody List<Mechanic> listMechanic() {
 		return actions.findAll();
