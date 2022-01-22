@@ -92,33 +92,6 @@ public class BookingController {
 		bkItm.setUnitprice(actions3.findByProductname(chargename).getUnitprice());
 		bkItm.setQuantity(1);
 		bkItm.setTotalprice(bkItm.getUnitprice() * bkItm.getQuantity());
-		/*if (booking.getBookingtype().equals("Annual Service")) {
-			/*bkItm.setProductname("Annual service charge");
-			String chargename = booking.getBookingtype() + " charge";
-			bkItm.setProductname(chargename);
-			bkItm.setBookingid(booking.getBookingid());
-			bkItm.setUnitprice(actions3.findByProductname(chargename).getUnitprice());
-			bkItm.setQuantity(1);
-			bkItm.setTotalprice(bkItm.getUnitprice() * bkItm.getQuantity());
-		} else if (booking.getBookingtype().equals("Major Service")) {
-			bkItm.setProductname("Major service charge");
-			bkItm.setBookingid(booking.getBookingid());
-			bkItm.setUnitprice(99);
-			bkItm.setQuantity(1);
-			bkItm.setTotalprice(bkItm.getUnitprice() * bkItm.getQuantity());
-		} else if (booking.getBookingtype().equals("Repair/Fault")) {
-			bkItm.setProductname("Repair/fault charge");
-			bkItm.setBookingid(booking.getBookingid());
-			bkItm.setUnitprice(39);
-			bkItm.setQuantity(1);
-			bkItm.setTotalprice(bkItm.getUnitprice() * bkItm.getQuantity());
-		} else if (booking.getBookingtype().equals("Major Repair")) {
-			bkItm.setProductname("Major repair charge");
-			bkItm.setBookingid(booking.getBookingid());
-			bkItm.setUnitprice(99);
-			bkItm.setQuantity(1);
-			bkItm.setTotalprice(bkItm.getUnitprice() * bkItm.getQuantity());
-	}*/
 		actions2.save(bkItm);
 		return true;
 	}
