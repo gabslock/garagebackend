@@ -33,5 +33,8 @@ public interface BookingRepository extends CrudRepository<Booking, Integer>{
 	
 	//Find by booking date and mechanic
 	List<Booking> findByDateAndMechanic (String date, String mechanic);
+	
+	//Find by user id
+	List<Booking> findByUserid (int userid);
 
 }

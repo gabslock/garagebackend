@@ -37,6 +37,7 @@ public class BookingItemController {
 	//Create booking items
 	@RequestMapping(value="/bookingitem", method=RequestMethod.POST)
 	public @ResponseBody BookingItem createBookingItem(@RequestBody BookingItem bookingitem) {
+		bookingitem.setTotalprice(bookingitem.getUnitprice() * bookingitem.getQuantity()); //Calculate total price
 		return actions.save(bookingitem);
 	}
 	
